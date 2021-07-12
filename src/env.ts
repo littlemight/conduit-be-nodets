@@ -1,4 +1,7 @@
+import Logger from './logger';
+
 const keys = [
+  'NODE_ENV',
   'PORT',
   'DB_HOST',
   'DB_PORT',
@@ -14,7 +17,6 @@ export const env = Object.fromEntries(
   keys.map((key) => [key, process.env[key] ?? ''])
 ) as Env;
 
-// TODO: create logger
 for (const key of keys) {
-  console.log(`${key} = ${env[key]}`);
+  Logger.info(`${key} = ${env[key]}`);
 }
